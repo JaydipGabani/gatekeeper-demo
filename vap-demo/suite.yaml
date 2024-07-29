@@ -1,0 +1,15 @@
+apiVersion: test.gatekeeper.sh/v1alpha1
+kind: Suite
+tests:
+- name: required-label
+  template: template.yaml
+  constraint: constraint.yaml
+  cases:
+  - name: allowed-pod
+    object: good_pod.yaml
+    assertions:
+    - violations: no
+  - name: denied-pod
+    object: bad_pod.yaml
+    assertions:
+    - violations: yes

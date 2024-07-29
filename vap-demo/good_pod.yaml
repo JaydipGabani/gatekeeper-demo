@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: good-pod
+  namespace: agile-bank
+  labels:
+    app: nginx
+    owner: jaydip.agilebank.demo
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
